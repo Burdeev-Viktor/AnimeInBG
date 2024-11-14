@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>AnimeList</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+    <tr th:each="anime: ${listAnime}">
+        <td th:text="${anime.id}"></td>
+        <td th:text="${anime.name}"></td>
+        <td th:text="${anime.description}"></td>
+    </tr>
+</table>
+
+<a href="/add-anime"> Add Anime</a>
+
+</body>
+</html>
