@@ -1,24 +1,50 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>AnimeList</title>
+    <title>Anime List</title>
+    <link rel="stylesheet" href="/css/styles.css"> <!-- Подключение стилей (опционально) -->
 </head>
 <body>
-<table>
+<h1>Anime List</h1>
+
+<table border="1">
+    <thead>
     <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Description</th>
+        <th>#</th>
+        <th>Title</th>
+        <th>Original Title</th>
+        <th>English Title</th>
+        <th>Genres</th>
+        <th>Release Date</th>
+        <th>Rating</th>
+        <th>Actions</th>
     </tr>
-    <tr th:each="anime: ${listAnime}">
-        <td th:text="${anime.id}"></td>
-        <td th:text="${anime.name}"></td>
-        <td th:text="${anime.description}"></td>
+    </thead>
+    <tbody>
+    <tr th:each="anime, iterStat : ${listAnime}">
+        <td th:text="${iterStat.count}"></td>
+        <td th:text="${anime.title}"></td>
+        <td th:text="${anime.originalTitle}"></td>
+        <td th:text="${anime.englishTitle}"></td>
+        <td>
+            <ul>
+                <li th:each="genre : ${anime.geners}" th:text="${genre.gener}"></li>
+            </ul>
+        </td>
+        <td th:text="${#dates.format(anime.releaseDate, 'yyyy-MM-dd')}"></td>
+        <td th:text="${anime.rating}"></td>
+        <td>
+            <a th:href="@{'/anime/view/' + ${anime.id}}">View</a> |
+            <a th:href="@{'/anime/edit/' + ${anime.id}}">Edit</a> |
+            <a th:href="@{'/anime/delete/' + ${anime.id}}" onclick="return confirm('Are you sure?')">Delete</a>
+        </td>
+        <td>
+            <img th:src="${anime.imageUrl}" alt="Anime Image" width="100" height="150" />
+        </td>
     </tr>
+    </tbody>
 </table>
 
-<a href="/add-anime"> Add Anime</a>
-
+<a href="/anime/create">Add New Anime</a>
 </body>
 </html>

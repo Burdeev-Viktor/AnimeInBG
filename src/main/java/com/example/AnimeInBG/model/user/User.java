@@ -1,4 +1,4 @@
-package com.example.AnimeInBG.model;
+package com.example.AnimeInBG.model.user;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -13,6 +13,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String username;
+    private String email;
     private String password;
     private String roles;
 }

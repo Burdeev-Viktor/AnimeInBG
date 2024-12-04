@@ -1,6 +1,6 @@
 package com.example.AnimeInBG.controller;
 
-import com.example.AnimeInBG.model.User;
+import com.example.AnimeInBG.model.user.User;
 import com.example.AnimeInBG.service.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
