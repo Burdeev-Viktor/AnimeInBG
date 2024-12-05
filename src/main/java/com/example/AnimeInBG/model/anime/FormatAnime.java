@@ -16,4 +16,8 @@ public class FormatAnime {
     private String format;
     @OneToMany(mappedBy = "format")
     private List<Anime> animes;
+
+    public FormatAnime(String format) {
+        this.format=format;
+    }
 }

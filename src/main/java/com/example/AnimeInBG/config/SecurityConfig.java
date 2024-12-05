@@ -19,7 +19,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
-
+import java.net.http.HttpClient;
 
 
 @Configuration
@@ -48,5 +48,9 @@ public class SecurityConfig {
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
+    }
+    @Bean
+    public HttpClient.Builder httpClientBuilder() {
+        return HttpClient.newBuilder();
     }
 }

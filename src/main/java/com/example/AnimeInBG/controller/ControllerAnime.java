@@ -25,8 +25,9 @@ public class ControllerAnime {
         this.formatAnimeService = formatAnimeService;
     }
 
+
     @RequestMapping(value = "/anime/list", method = RequestMethod.GET)
-    public String getAnimeList(Model model){
+    public String getAnimeList(Model model) throws Exception {
         model.addAttribute("listAnime", animeService.getAll());
         return "AnimeList";
     }

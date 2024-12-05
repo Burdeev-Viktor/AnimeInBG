@@ -16,4 +16,7 @@ public class Gener {
     private String gener;
     @ManyToMany(mappedBy = "geners")
     private List<Anime> animes;
+    public Gener(String gener){
+        this.gener = gener;
+    }
 }

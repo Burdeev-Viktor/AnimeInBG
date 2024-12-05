@@ -19,6 +19,7 @@ public class Anime {
     private String title;
     private String originalTitle;
     private String englishTitle;
+    @Column(length = 1000)
     private String description;
     private int episodeCount;
     @ManyToMany
